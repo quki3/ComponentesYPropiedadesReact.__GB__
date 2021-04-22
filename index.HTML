@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel" >
+     function Welcome(props){
+         return <h1>Hello, {props.name}</h1>;
+     }
+     function App(){
+         return(
+            <div>
+             <Welcome name="Sara"/>
+             <Welcome name="Cahal"/>
+             <Welcome name="Edite"/>
+            </div>
+         );
+     }
+     function Commen(props){
+        return(
+            <div className="Commen">
+               <UserInfo/> {/*EXTRAER USER_INFO??*/}
+               <div className="Commen-text">
+                {props.text}
+               </div>
+               <div className="Commen-date">
+                {props.date} 
+               </div> 
+            </div>    
+         );
+     }
+     function App2(){
+        return (
+            <div>
+                <Commen 
+                name="App2 nombre mufa" 
+                AvatarUrl="./感谢_孙无力__插画师作品_涂鸦王国gracg_com.jpg"
+                date="data"
+                />
+            </div>
+        )
+     }
+     function Avatar(props){
+         return(
+             <img className="Avatar"
+              src={props.avatarUrl}
+              alt={props.name}
+             />
+         )
+     }
+     function UserInfo(props){
+         return(
+             <div className="UserInfo">
+                <Avatar />
+                <div className="UserInfo-name">
+                    {props.name} 
+                </div> 
+             </div> 
+         );
+     }
+     const element = <Welcome name="Sara"/>; 
+     ReactDOM.render(
+         <div>
+            {element}{/*PRIMERO??*/}
+            <App />{/*SEGUNDO??*/}
+            <App2 />{/*TERCERO??*/}
+         </div>,document.getElementById("root"));
+    setInterval(UserInfo,1000)
+    </script>
+    
+  </body>
+</html>
